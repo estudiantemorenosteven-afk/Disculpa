@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7e9dc">
+<meta name="description" content="Una carta especial para Almendrita.">
+<title>Para mi Almendrita 💌</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#a23d63;--ink:#493d38;--gold:#b79555;--paper:#fffdf7;--rose:#f8e5e6}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(19px,2vw,22px);line-height:1.8;background:#ead7c5 url("assets/fondo-floral.webp") center/cover fixed no-repeat}
+body:before{content:"";position:fixed;inset:0;background:linear-gradient(135deg,#fff5e7a8,#fceaf0a1);pointer-events:none;z-index:-1}
+button,a{font:inherit}
+.music-toggle{position:fixed;z-index:8;top:20px;right:22px;border:1px solid #a5866d50;border-radius:999px;padding:11px 17px;background:#fffaf0eF;color:#55463c;box-shadow:0 8px 24px #59402c22;font:500 13px Manrope,sans-serif;cursor:pointer;transition:transform .2s,background .2s}
+.music-toggle:hover{transform:translateY(-2px);background:white}
+.music-panel{position:fixed;z-index:8;right:22px;top:74px;width:min(340px,calc(100vw - 32px));padding:12px;border-radius:18px;background:#fffaf2;box-shadow:0 14px 42px #44302235;border:1px solid #d3bda4}
+.music-panel[hidden]{display:none}
+.music-panel p{font:12px/1.5 Manrope,sans-serif;margin:4px 5px 10px}
+.music-panel iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:10px}
+.music-panel a{display:block;margin:8px 5px 2px;color:var(--wine);font:12px Manrope,sans-serif}
+.page{width:min(780px,calc(100% - 32px));margin:72px auto 54px}
+.letter{position:relative;overflow:hidden;padding:clamp(28px,6vw,70px) clamp(23px,7vw,76px) 52px;background:var(--paper);border:1px solid #e7d9bd;border-radius:5px 5px 18px 18px;box-shadow:0 24px 70px #4e352a40,0 3px 9px #77533116}
+.letter:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,#b1a18305 0,#b1a18305 1px,transparent 1px,transparent 5px);pointer-events:none}
+.ornament{position:absolute;color:#b79555;opacity:.88;font-size:36px;line-height:1}
+.ornament.top{top:18px;left:20px}
+.ornament.bottom{right:20px;bottom:18px;transform:rotate(180deg)}
+.kicker{margin:0 0 4px;color:var(--wine);font:700 11px/1.6 Manrope,sans-serif;letter-spacing:.24em;text-transform:uppercase}
+h1{margin:0 0 29px;color:var(--wine);font:clamp(46px,8vw,68px)/1.05 "Great Vibes",cursive;font-weight:400}
+.months{display:inline-flex;align-items:center;gap:8px;margin:0 0 22px;padding:6px 13px;border:1px solid #ecd7c7;border-radius:999px;background:#fff7ef;color:#82604e;font:12px Manrope,sans-serif}
+.months span{color:#cb6681}
+.letter-copy{position:relative;z-index:1;margin:0;font-size:clamp(19px,2.25vw,23px);line-height:1.78;text-align:left;white-space:pre-line}
+.letter-copy::first-letter{float:left;margin:8px 8px 0 0;color:#aa4d70;font-size:3.05em;line-height:.78}
+.photo-wrap{position:relative;width:min(330px,84%);margin:38px auto 34px;padding:12px 12px 48px;background:white;box-shadow:0 12px 24px #54412e28;transform:rotate(-2deg);transition:transform .35s}
+.photo-wrap:hover{transform:rotate(0) scale(1.02)}
+.photo-wrap:before{content:"";position:absolute;top:-13px;left:38%;width:82px;height:26px;background:#eecad7b0;transform:rotate(4deg)}
+.photo-wrap img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.photo-caption{position:absolute;right:14px;bottom:8px;color:#806557;font:17px "Great Vibes",cursive}
+.signoff{text-align:right;margin-top:8px}
+.signoff p{margin:0}
+.signoff .with-love{font-style:italic;font-size:17px}
+.signature{color:var(--wine);font:clamp(43px,8vw,60px)/1.15 "Great Vibes",cursive}
+.signature strong{font-weight:400}
+.love-line{margin-top:8px!important;color:#76595a;font-size:19px}
+.seal{display:inline-grid;place-items:center;width:43px;height:43px;margin-left:8px;border-radius:50%;color:#fff8f3;background:radial-gradient(circle at 35% 30%,#e77589,#a92f55 70%);font:20px Manrope,sans-serif;box-shadow:inset 0 0 0 3px #e995a8,inset 0 0 0 5px #b83c5d,0 3px 6px #5c253333;vertical-align:middle}
+.footer-note{margin:19px 0 0;text-align:center;color:#fff9f0;font:11px Manrope,sans-serif;text-shadow:0 1px 6px #5b3c39}
+.petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:2}
+.petal{position:absolute;top:-8vh;width:13px;height:19px;border-radius:80% 10% 80% 10%;background:linear-gradient(145deg,#fff4ef,#d88ca2);opacity:.65;animation:fall linear infinite}
+.petal:nth-child(1){left:8%;animation-duration:19s;animation-delay:-8s}
+.petal:nth-child(2){left:19%;animation-duration:22s;animation-delay:-15s;transform:scale(.7)}
+.petal:nth-child(3){left:31%;animation-duration:17s;animation-delay:-4s;transform:scale(.85)}
+.petal:nth-child(4){left:47%;animation-duration:24s;animation-delay:-19s;transform:scale(.65)}
+.petal:nth-child(5){left:63%;animation-duration:20s;animation-delay:-11s}
+.petal:nth-child(6){left:78%;animation-duration:18s;animation-delay:-6s;transform:scale(.75)}
+.petal:nth-child(7){left:91%;animation-duration:25s;animation-delay:-17s;transform:scale(.9)}
+@keyframes fall{0%{translate:0 -5vh;rotate:0}45%{translate:36px 48vh;rotate:200deg}100%{translate:-24px 110vh;rotate:480deg}}
+@media(max-width:600px){body{background-attachment:scroll}.page{margin-top:80px}.letter{padding:38px 24px 42px}.ornament.top{top:11px;left:12px;font-size:27px}.ornament.bottom{right:12px;bottom:12px;font-size:27px}.music-toggle{top:12px;right:12px}.music-panel{top:62px;right:12px}.photo-wrap{margin:30px auto}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="petals" aria-hidden="true"><i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i></div>
+<button class="music-toggle" id="music-toggle" aria-expanded="false" aria-controls="music-panel">♫ &nbsp; Toca para escuchar</button>
+<div class="music-panel" id="music-panel" hidden>
+<p><strong>Stubborn Love</strong> · The Lumineers</p>
+<div id="player-slot"></div>
+<a href="https://www.youtube.com/watch?v=UJWk_KNbDHo" target="_blank" rel="noopener noreferrer">Abrir el video oficial en YouTube ↗</a>
+</div>
+<main class="page">
+<article class="letter">
+<span class="ornament top" aria-hidden="true">❧</span>
+<span class="ornament bottom" aria-hidden="true">❧</span>
+<p class="kicker">Una carta para ti</p>
+<h1>Almendrita,</h1>
+<p class="months"><span>♥</span> Ocho meses juntos</p>
+<p class="letter-copy">Godita cuando empezamos a salir fui la persona más feliz del universo hoy han pasado 8 meses y lo sigo siendo pero tu ya no eres la mujer más feliz y aunque a ti no te parezca a mi me importa y me pone triste porque yo te dije que te iba a hacer la mujer más feliz que te iba a dar solo alegría y que te iba a dar todo lo que te mereces al parecer no estoy ni cerca y eso me pone demasiado triste, godita yo no te voy a dar la felicidad que te mereces o si lo logro antes de eso te estoy haciendo demasiado daño y tu no te mereces eso, a mi me gustaria que fueras super feliz y por eso Marian Stefani Patalagua te pido que por ultima vez me des una ayuda porque yo no estoy podiendo simplemente soy un patan por naturaleza y me siento perdido marian yo se que cometo los mismos errores pero simplemente es en algunos casos porque soy un distraído y en otros porque no pienso que te vaya a molestar me volví un mentiroso cuando odiaba las mentiras y pues aunque no me creas ni que me llamo steven te prometo que no te voy a decir mas mentiras. Si tu estas dispuesta hablemos mañana y ayudame por favor yo me esfuerzo en serio godita porque de verdad eres la primera mujer de la que me enamoro de esta forma y de la cual no quiero para de conocer cada día.</p>
+<figure class="photo-wrap">
+<img src="assets/foto-nosotros.webp" alt="Steven y Almendrita juntos, en una fotografía de recuerdo">
+<figcaption class="photo-caption">Un recuerdo nuestro</figcaption>
+</figure>
+<div class="signoff">
+<p class="with-love">Con amor,</p>
+<p class="signature"><strong>De Steven</strong> <span class="seal" aria-hidden="true">♥</span></p>
+<p class="love-line">Te amo muchismo mucho mucho 🩵</p>
+</div>
+</article>
+<p class="footer-note">Hecha con mucho amor, para ti.</p>
+</main>
+<script>
+const toggle=document.getElementById('music-toggle');
+const panel=document.getElementById('music-panel');
+const slot=document.getElementById('player-slot');
+let loaded=false;
+toggle.addEventListener('click',()=>{
+  const opening=panel.hidden;
+  panel.hidden=!opening;
+  toggle.setAttribute('aria-expanded',String(opening));
+  toggle.innerHTML=opening?'♫ &nbsp; Ocultar canción':'♫ &nbsp; Toca para escuchar';
+  if(opening&&!loaded){
+    const frame=document.createElement('iframe');
+    frame.title='Stubborn Love de The Lumineers, video oficial';
+    frame.allow='autoplay; encrypted-media; picture-in-picture';
+    frame.allowFullscreen=true;
+    frame.src='https://www.youtube-nocookie.com/embed/UJWk_KNbDHo?autoplay=1&rel=0';
+    slot.append(frame);
+    loaded=true;
+  }
+});
+</script>
+</body>
+</html>
